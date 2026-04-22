@@ -64,7 +64,12 @@ form.addEventListener("submit", async (e) => {
 
   // reset state
   output.classList.remove("error");
-  output.textContent = "Loading...";
+  output.innerHTML = `
+    <div class="loader">
+      <div class="spinner"></div>
+      <p>Fetching weather...</p>
+    </div>
+  `;
 
   try {
     const res = await fetch(
