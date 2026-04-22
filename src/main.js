@@ -32,9 +32,11 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const data = await fetchWeatherByCity(city);
+    console.log(data);
     saveToHistory(city);
     renderHistory();
     renderWeather(output, data);
+    cityInput.value = "";
   } catch (err) {
     showError(output, err.message);
   }
