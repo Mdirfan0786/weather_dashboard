@@ -1,39 +1,276 @@
-/* style.css */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
 body {
-  font-family: sans-serif;
-  background: #eef2f7;
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #0f172a, #020617);
+  color: white;
+
+  min-height: 100vh;
+
+  padding-top: 60px;
+  padding-bottom: 50px;
+  padding-inline: 1rem;
 }
 
-.container {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  text-align: center;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  background: #0f172ab3;
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid #ffffff0d;
+
+  z-index: 1000;
 }
 
+/* Navbar text */
+.navbar h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.navbar h2 > span {
+  color: #0ea5e9;
+}
+
+/* Container  */
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: 1rem auto;
+
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #0f172ab3;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ffffff0d;
+}
+
+/* Heading */
+h1 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Form */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* Input */
 input {
-  padding: 0.5rem;
-  width: 70%;
-  margin-right: 0.5rem;
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 0.3rem;
+  border: none;
+  background: #1e293b;
+  color: white;
+  outline: none;
 }
 
+input::placeholder {
+  color: #94a3b8;
+}
+
+/* Button */
 button {
   padding: 0.5rem 1rem;
-  background: #2563eb;
-  color: white;
+  border-radius: 0.3rem;
   border: none;
-  border-radius: 4px;
+  background: #38bdf8;
+  color: black;
+  font-weight: 500;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.weather-output {
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: #333;
+button:hover {
+  background: #0ea5e9;
+}
+
+/* Error */
+.error {
+  font-size: 14px;
+  padding: 0.8rem;
+  color: #f87171;
+  background-color: #f8717114;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+}
+
+/* Weather Card */
+.weather-card {
+  margin-top: 1rem;
+  animation: smoothEntry 0.4s ease;
+}
+
+@keyframes smoothEntry {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Top section */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Badge */
+.badge {
+  background: #1e293b;
+  padding: 4px 10px;
+  border-radius: 0.3rem;
+  font-size: 12px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+/* Icon */
+.icon {
+  font-size: 32px;
+}
+
+.fa-sun {
+  color: #f8de22;
+}
+
+/* Temperature */
+.temp {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.temp span {
+  font-size: 1.5rem;
+}
+
+/* Condition */
+.condition {
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Boxes */
+.box {
+  background: rgba(30, 41, 59, 0.6);
+  padding: 1rem;
+  border-radius: 0.7rem;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff0d;
+}
+
+.box p {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.box h3 {
+  margin-top: 5px;
+}
+
+/* History */
+.history {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.history-btn {
+  background: rgba(30, 41, 59, 0.8);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.history-btn:hover {
+  background: #38bdf8;
+  color: black;
+  transform: translateY(-2px);
+}
+
+.history-btn:active {
+  transform: scale(0.95);
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 0;
+
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+
+  border-top: 1px solid #ffffff0d;
+
+  color: #94a3b8;
+  font-size: 12px;
+
+  z-index: 1000;
+}
+
+.footer > p > span {
+  color: #0ea5e9;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 3.75rem;
+    padding-bottom: 3.1rem;
+  }
+
+  .container {
+    margin: 1rem auto;
+    padding: 1.2rem;
+  }
 }
